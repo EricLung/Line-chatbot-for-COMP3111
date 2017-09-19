@@ -74,6 +74,8 @@ public class KitchenSinkTester {
 		assertThat(!thrown).isEqualTo(true);
 		assertThat(result).isEqualTo("def");
 	}
+	
+	@Test
 	public void myfunction() throws Exception {
 		boolean thrown = false;
 		String result = null;
