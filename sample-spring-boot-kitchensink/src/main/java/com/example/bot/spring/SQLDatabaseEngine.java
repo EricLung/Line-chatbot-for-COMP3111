@@ -42,8 +42,6 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 			return result;
 		throw new Exception("NOT FOUND");
     }
-		return null;
-	}
 	
 	private Connection getConnection() throws URISyntaxException, SQLException {
 		Connection connection;
