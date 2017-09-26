@@ -14,9 +14,9 @@ import java.net.URI;
 public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
 	String search(String text) throws Exception {
+		Connection con=getConnection();
 		String result = null;
 		try {
-			Connection con=getConnection();
 			PreparedStatement stmt = con.prepareStatement(
 			"SELECT * FROM testdb");
 			ResultSet rs = stmt.executeQuery();
@@ -26,12 +26,11 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 				}
 			}
 			rs.close();
+			stmt.close();
 		} catch (Exception e) {
 			log.info("Exception while reading db", e.toString());
 		} finally {
 			try {
-				if (stmt != null)
-					stmt.close();
 				if(con != null)
 					con.close();
 			} catch (Exception ex) {
